@@ -1,6 +1,7 @@
 import React, {useState, useEffect,} from 'react';
 import './App.css';
 import axios from 'axios';
+import {Card, CardSubtitle, CardTitle, CardBody} from 'reactstrap';
 
 
 const App = () => {
@@ -30,14 +31,16 @@ const App = () => {
       <div>
         {swData.map(function(trait, index){
           return(
-            <div key = {index}>
-              <h1>{trait.name}</h1>
-              <div>
-                <h4>Height: {trait.height}</h4>
-                <h4>Weight: {trait.mass}</h4>
-                <h4>Birth: {trait.birth_year}</h4>
-              </div>  
-            </div>
+            <Card key = {index}>
+              <CardBody>
+                <CardTitle>{trait.name}</CardTitle>
+                <div>
+                  <CardSubtitle>Height: {trait.height}</CardSubtitle>
+                  <CardSubtitle>Weight: {trait.mass}</CardSubtitle>
+                  <CardSubtitle>Birth: {trait.birth_year}</CardSubtitle>
+                </div>  
+              </CardBody>
+            </Card>
           );
         })}
 
